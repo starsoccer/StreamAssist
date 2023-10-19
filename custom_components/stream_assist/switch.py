@@ -168,7 +168,7 @@ class StreamAssistSwitch(SwitchEntity, Stream):
                 self.hass,
                 context=self._context,
                 pipeline=pipeline,
-                start_stage=PipelineStage.STT,
+                start_stage=PipelineStage.WAKE_WORD,
                 end_stage=end_stage,
                 event_callback=self._event_callback,
             ),
