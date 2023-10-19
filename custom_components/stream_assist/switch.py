@@ -107,7 +107,7 @@ class StreamAssistSwitch(SwitchEntity, Stream):
         async_dispatcher_send(self.hass, self.uid + "-vad", STATE_STANDBY)
 
         while chunk := await self.audio_queue.get():
-            if not self.vad.process(chunk):
+            if not self.vad.process(chunk, True):
                 break  # Voice command is finished
 
             if in_command != self.vad.in_command:
